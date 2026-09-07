@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fluke మీటర్ → మీ ఫోన్ Dashboard — బొమ్మలతో వివరణ (Telugu)</title>
+<style>
+  :root{--y:#f5c400;--bg:#fffdf5;--ink:#1c1c1c;--muted:#5b5b5b;--ok:#1e9e5a;--bad:#d13b3b;--card:#ffffff;--line:#e6e2d2;--blue:#1f6feb}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans Telugu","Gautami","Nirmala UI","Mandali",-apple-system,"Segoe UI",Roboto,sans-serif;font-size:17px;line-height:1.75}
+  header{background:#1c1c1c;color:#fff;padding:22px 18px}
+  header .tag{display:inline-block;background:var(--y);color:#111;font-weight:900;letter-spacing:.1em;padding:2px 10px;border-radius:4px;font-size:13px}
+  header h1{margin:10px 0 4px;font-size:24px;line-height:1.35}
+  header p{margin:0;color:#cfcfcf;font-size:15px}
+  main{max-width:900px;margin:0 auto;padding:18px 14px 60px}
+  section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;margin:16px 0}
+  h2{margin:0 0 10px;font-size:21px;border-left:6px solid var(--y);padding-left:10px;line-height:1.4}
+  h3{margin:16px 0 6px;font-size:18px}
+  p{margin:8px 0}
+  .big{font-size:30px;font-weight:900;color:var(--ok);margin:4px 0}
+  .note{background:#fff8d6;border:1px solid #f0e2a0;border-radius:10px;padding:10px 14px;margin:10px 0}
+  .warn{background:#fdecec;border:1px solid #f3bcbc;border-radius:10px;padding:10px 14px;margin:10px 0}
+  .ok{background:#e8f7ee;border:1px solid #b9e3c8;border-radius:10px;padding:10px 14px;margin:10px 0}
+  table{width:100%;border-collapse:collapse;font-size:16px;margin:8px 0}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:#f6f3e6}
+  .steps{counter-reset:s;display:grid;gap:12px;margin-top:10px}
+  .step{display:grid;grid-template-columns:52px 1fr;gap:12px;align-items:start;background:#faf8ef;border:1px solid var(--line);border-radius:12px;padding:12px}
+  .step::before{counter-increment:s;content:counter(s);display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--y);font-weight:900;font-size:20px;color:#111}
+  .step b{font-size:17px}
+  .step small{display:block;color:var(--muted);font-size:15px;margin-top:2px}
+  svg{max-width:100%;height:auto;display:block;margin:10px auto}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:640px){.two{grid-template-columns:1fr}}
+  .box{border:2px solid var(--line);border-radius:12px;padding:12px;text-align:center}
+  .box.good{border-color:var(--ok)} .box.badb{border-color:var(--bad)}
+  .mock{background:#0f1115;color:#e8eaf0;border-radius:14px;padding:12px;font-family:system-ui,sans-serif;font-size:13px;position:relative}
+  .mock .hd{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333;padding-bottom:8px;margin-bottom:8px}
+  .mock .btns{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
+  .mock .b{background:#222733;border:1px solid #3a4050;border-radius:6px;padding:5px 9px}
+  .mock .b.p{background:var(--y);color:#111;font-weight:800}
+  .mock .lcd{background:#c8d2b6;color:#151a12;border-radius:10px;padding:10px 12px;margin:8px 0;font-family:ui-monospace,Menlo,monospace}
+  .mock .lcd .n{font-size:44px;font-weight:800;text-align:right;line-height:1}
+  .mock .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+  .mock .st{background:#181b22;border:1px solid #2a2f3a;border-radius:8px;padding:6px;text-align:center}
+  .mock .graph{height:60px;background:#181b22;border:1px solid #2a2f3a;border-radius:8px;margin-top:8px;position:relative;overflow:hidden}
+  .mock .graph i{position:absolute;left:0;right:0;bottom:12px;height:2px;background:var(--y);transform:rotate(-6deg)}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;font-size:14px;margin-right:6px;vertical-align:middle}
+  ul{margin:6px 0 0 20px;padding:0} li{margin:4px 0}
+  .kbd{display:inline-block;background:#eee;border:1px solid #ccc;border-radius:5px;padding:0 6px;font-family:monospace;font-size:15px}
+  footer{max-width:900px;margin:0 auto;padding:0 14px 30px;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<header>
+  <span class="tag">FLUKE 378 FC</span>
+  <h1>మీటర్ readings → మీ ఫోన్‌లో మీ సొంత Dashboard<br>బొమ్మలతో, సులభమైన Telugu లో వివరణ</h1>
+  <p>Fluke app లేకుండా · Internet లేకుండా · మీ Android ఫోన్‌లో</p>
+</header>
+
+<main>
+
+<!-- 0 -->
+<section>
+  <h2>1. సాధ్యమా? కాదా?</h2>
+  <p class="big">✅ సాధ్యమే (POSSIBLE)</p>
+  <p>మీ Fluke 378 FC మీటర్ చూపించే reading (ఉదా: <b>-6.60 A dc</b>) ని, Fluke వాళ్ళ app <u>లేకుండా</u>, మీ ఫోన్‌లో <u>మీరు తయారు చేసుకున్న</u> ఒక page లో <b>live గా</b> చూడవచ్చు. దానికి <b>internet అవసరం లేదు</b>.</p>
+  <div class="note">నేను ఆ page ని ఇప్పటికే తయారు చేశాను: <b>index.html</b> (ఈ folder లోనే ఉంది). మీరు చేయాల్సింది దాన్ని మీ ఫోన్‌లో పెట్టుకోవడం మాత్రమే.</div>
+</section>
+
+<!-- 1 -->
+<section>
+  <h2>2. ఇది ఎలా పనిచేస్తుంది? (ఒక బొమ్మలో)</h2>
+  <svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans Telugu, Gautami, Nirmala UI, sans-serif">
+    <!-- meter -->
+    <rect x="30" y="60" width="150" height="200" rx="16" fill="#f5c400" stroke="#333" stroke-width="3"/>
+    <rect x="50" y="130" width="110" height="60" rx="6" fill="#c8d2b6" stroke="#333" stroke-width="2"/>
+    <text x="105" y="170" font-size="22" text-anchor="middle" font-weight="700" font-family="monospace">-6.60 A</text>
+    <path d="M60 60 C 60 10, 150 10, 150 60" fill="none" stroke="#c0392b" stroke-width="16" stroke-linecap="round"/>
+    <circle cx="105" cy="215" r="14" fill="#fff" stroke="#333" stroke-width="2"/>
+    <text x="105" y="221" font-size="14" text-anchor="middle" font-weight="800">F</text>
+    <text x="105" y="290" font-size="16" text-anchor="middle" font-weight="700">మీటర్</text>
+    <!-- waves -->
+    <g stroke="#1f6feb" stroke-width="4" fill="none" stroke-linecap="round">
+      <path d="M210 130 q 20 30 0 60"/><path d="M240 110 q 35 50 0 100"/><path d="M270 90 q 50 70 0 140"/>
+    </g>
+    <text x="245" y="70" font-size="15" text-anchor="middle" fill="#1f6feb" font-weight="700">Bluetooth</text>
+    <text x="245" y="265" font-size="14" text-anchor="middle" fill="#555">(radio waves, 3 మీ.)</text>
+    <!-- phone -->
+    <rect x="330" y="40" width="150" height="240" rx="18" fill="#222" stroke="#000" stroke-width="3"/>
+    <rect x="342" y="60" width="126" height="200" rx="8" fill="#0f1115"/>
+    <rect x="350" y="110" width="110" height="60" rx="6" fill="#c8d2b6"/>
+    <text x="405" y="150" font-size="22" text-anchor="middle" font-weight="700" font-family="monospace">-6.60 A</text>
+    <text x="405" y="90" font-size="12" text-anchor="middle" fill="#f5c400" font-weight="700">index.html</text>
+    <path d="M355 230 l 15 -12 l 15 8 l 20 -20 l 20 5 l 20 -15" stroke="#f5c400" stroke-width="3" fill="none"/>
+    <text x="405" y="295" font-size="16" text-anchor="middle" font-weight="700">మీ ఫోన్ (Chrome)</text>
+    <!-- arrow to explanation -->
+    <g font-size="15">
+      <rect x="520" y="50" width="350" height="60" rx="10" fill="#fff8d6" stroke="#e8d78a"/>
+      <text x="535" y="75" font-weight="700">① మీటర్: F బటన్ నొక్కగానే</text>
+      <text x="535" y="98">reading ని radio లో పంపుతూ ఉంటుంది</text>
+      <rect x="520" y="125" width="350" height="60" rx="10" fill="#e8f0fe" stroke="#b7cdf7"/>
+      <text x="535" y="150" font-weight="700">② ఫోన్ Bluetooth: ఆ radio ని</text>
+      <text x="535" y="173">అందుకుని Chrome కి ఇస్తుంది</text>
+      <rect x="520" y="200" width="350" height="60" rx="10" fill="#e8f7ee" stroke="#b9e3c8"/>
+      <text x="535" y="225" font-weight="700">③ మన page (index.html): ఆ text ని</text>
+      <text x="535" y="248">పెద్ద అంకెగా, graph గా చూపిస్తుంది</text>
+    </g>
+  </svg>
+  <div class="ok"><b>గమనించండి:</b> ఈ బొమ్మలో ఎక్కడా <b>internet / WiFi / SIM</b> లేదు. మీటర్ → ఫోన్ నేరుగా radio ద్వారా. అందుకే <b>offline</b> పనిచేస్తుంది.</div>
+</section>
+
+<!-- 2 -->
+<section>
+  <h2>3. సులభమైన ఉదాహరణ — FM Radio</h2>
+  <div class="two">
+    <div class="box"><div style="font-size:40px">📻</div><b>FM station</b> పాటలు గాలిలో పంపుతుంది.<br>ఎవరు వింటున్నారో దానికి తెలియదు.</div>
+    <div class="box"><div style="font-size:40px">🔧</div><b>మీ మీటర్</b> reading ని గాలిలో (Bluetooth) పంపుతుంది.<br>ఎవరు వింటున్నారో దానికి తెలియదు.</div>
+    <div class="box"><div style="font-size:40px">📱</div><b>Fluke Connect app</b> = Fluke కంపెనీ ఇచ్చిన radio.</div>
+    <div class="box good"><div style="font-size:40px">🖥️</div><b>మన index.html</b> = మనమే చేసుకున్న radio.<br>అదే పాట (reading) వినిపిస్తుంది!</div>
+  </div>
+  <p style="margin-top:12px">Fluke వాళ్ళు ఈ radio "భాష" ని రహస్యంగా (encryption) పెట్టలేదు. మీటర్ <b>display లో ఉన్న text నే అలాగే</b> పంపుతుంది — <span class="kbd">"   0.7 A  dc"</span> లాగా. అందుకే మన page దాన్ని సులభంగా చదవగలదు.</p>
+</section>
+
+<!-- 3 -->
+<section>
+  <h2>4. మూడు ముఖ్యమైన ప్రశ్నలు</h2>
+  <table>
+    <tr><th style="width:45%">ప్రశ్న</th><th>సమాధానం</th></tr>
+    <tr><td>Fluke app కావాలా?</td><td><b>వద్దు.</b> మన page చాలు.</td></tr>
+    <tr><td>Internet కావాలా?</td><td><b>వద్దు</b> — మీటర్ data కి ఎప్పుడూ అవసరం లేదు.<br>Page ని <u>మొదటిసారి</u> ఫోన్‌లోకి తెచ్చుకోవడానికి మాత్రం ఒక్కసారి internet కావాలి (ఒక app install చేసినట్లే).</td></tr>
+    <tr><td>ఏ ఫోన్ / browser?</td><td><b>Android + Chrome</b>. iPhone (Safari) లో పనిచేయదు. Laptop అయితే Windows/Mac లో Chrome లేదా Edge.</td></tr>
+  </table>
+</section>
+
+<!-- 4 -->
+<section>
+  <h2>5. "HTTPS" అనేది ఏమిటి? ఎందుకు కావాలి? (అందరూ confuse అయ్యే point)</h2>
+  <p>Chrome కి ఒక నియమం ఉంది:</p>
+  <div class="note">"Bluetooth లాంటి hardware ని నేను <b>నమ్మకమైన address</b> నుంచి వచ్చిన page కి మాత్రమే ఇస్తాను."</div>
+  <ul>
+    <li>నమ్మకమైన address = <span class="kbd">https://</span> తో మొదలయ్యే link (s = secure).</li>
+    <li>అందుకే మన <b>index.html</b> ని ఒక్కసారి internet లో ఒక <span class="kbd">https://</span> address వద్ద పెట్టాలి. దీన్నే <b>"hosting"</b> అంటారు.</li>
+    <li>ఇది <b>free</b> గా, 2 నిమిషాల్లో అవుతుంది (<b>Netlify Drop</b> అనే website లో file ని drag &amp; drop చేస్తే చాలు).</li>
+    <li>ఒక్కసారి ఫోన్ Chrome లో ఆ link open చేస్తే, page తనను తాను ఫోన్‌లో <b>save చేసుకుంటుంది</b>. ఆ తర్వాత internet లేకున్నా open అవుతుంది.</li>
+  </ul>
+  <div class="two" style="margin-top:10px">
+    <div class="box badb">❌ <span class="kbd">http://</span> (s లేకుండా)<br>Chrome Bluetooth ఇవ్వదు</div>
+    <div class="box good">✅ <span class="kbd">https://</span><br>Chrome Bluetooth ఇస్తుంది</div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section>
+  <h2>6. ఒక్కసారి చేయాల్సిన Setup (సుమారు 10 నిమిషాలు)</h2>
+  <div class="steps">
+    <div class="step"><div><b>5 files download చేయండి</b><small>ఈ folder లో: <span class="kbd">index.html</span>, <span class="kbd">sw.js</span>, <span class="kbd">manifest.json</span>, <span class="kbd">icon-192.png</span>, <span class="kbd">icon-512.png</span> — అన్నీ ఒకే folder లో ఉంచండి. (index.html ఒక్కటే ముఖ్యం; మిగతావి "Install app" &amp; offline కోసం.)</small></div></div>
+    <div class="step"><div><b>Laptop లో <span class="kbd">app.netlify.com/drop</span> open చేయండి</b><small>Free account create చేయండి (email చాలు). తర్వాత మీ <b>fluke-dashboard</b> folder ని ఆ page మీద <b>drag &amp; drop</b> చేయండి. 30 సెకన్లలో ఒక link వస్తుంది: <span class="kbd">https://ఏదో-పేరు.netlify.app</span></small></div></div>
+    <div class="step"><div><b>ఆ link ని ఫోన్ Chrome లో open చేయండి</b><small>Page పైన కుడివైపు <b>"✔ offline ready"</b> అని కనిపిస్తుంది = page ఫోన్‌లో save అయింది.</small></div></div>
+    <div class="step"><div><b>Home screen కి add చేయండి</b><small>Chrome menu (⋮) → <b>"Add to Home screen"</b> / <b>"Install app"</b>. Home screen లో <b>"Fluke Dash"</b> icon వస్తుంది. ఇకపై internet అవసరం లేదు.</small></div></div>
+    <div class="step"><div><b>Permissions</b><small>ఫోన్ Bluetooth <b>ON</b>. Android అడిగితే <b>Location / Nearby devices</b> → Allow. (Android Bluetooth scan కి Location అడుగుతుంది — ఇది Android నియమం.)</small></div></div>
+    <div class="step"><div><b>Demo mode తో test</b><small>Fluke Dash open → <b>▶ Demo mode</b> నొక్కండి. మీటర్ లేకుండానే నకిలీ readings తో page ఎలా పనిచేస్తుందో చూడవచ్చు. ఇది practice కి.</small></div></div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section>
+  <h2>7. రోజూ వాడకం — మీటర్ connect చేయడం</h2>
+  <svg viewBox="0 0 900 190" xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans Telugu, Gautami, Nirmala UI, sans-serif" font-size="15">
+    <g>
+      <rect x="10" y="20" width="200" height="130" rx="12" fill="#faf8ef" stroke="#e6e2d2"/>
+      <circle cx="40" cy="45" r="14" fill="#f5c400"/><text x="40" y="50" text-anchor="middle" font-weight="800">1</text>
+      <text x="60" y="50" font-weight="700">మీటర్ మీద</text>
+      <text x="20" y="80">F బటన్ నొక్కండి →</text>
+      <text x="20" y="105">display లో Bluetooth</text>
+      <text x="20" y="130">గుర్తు రావాలి</text>
+    </g>
+    <path d="M215 85 l 25 0" stroke="#999" stroke-width="3" marker-end="url(#a)"/>
+    <g>
+      <rect x="245" y="20" width="200" height="130" rx="12" fill="#faf8ef" stroke="#e6e2d2"/>
+      <circle cx="275" cy="45" r="14" fill="#f5c400"/><text x="275" y="50" text-anchor="middle" font-weight="800">2</text>
+      <text x="295" y="50" font-weight="700">ఫోన్‌లో</text>
+      <text x="255" y="80">"Fluke Dash" open →</text>
+      <text x="255" y="105">"🔵 Connect meter"</text>
+      <text x="255" y="130">నొక్కండి</text>
+    </g>
+    <path d="M450 85 l 25 0" stroke="#999" stroke-width="3" marker-end="url(#a)"/>
+    <g>
+      <rect x="480" y="20" width="200" height="130" rx="12" fill="#faf8ef" stroke="#e6e2d2"/>
+      <circle cx="510" cy="45" r="14" fill="#f5c400"/><text x="510" y="50" text-anchor="middle" font-weight="800">3</text>
+      <text x="530" y="50" font-weight="700">List లో</text>
+      <text x="490" y="80">"378FC" select →</text>
+      <text x="490" y="105">"Pair" నొక్కండి</text>
+      <text x="490" y="130" fill="#555" font-size="13">(Fluke app close చేసి ఉంచండి)</text>
+    </g>
+    <path d="M685 85 l 25 0" stroke="#999" stroke-width="3" marker-end="url(#a)"/>
+    <g>
+      <rect x="715" y="20" width="175" height="130" rx="12" fill="#e8f7ee" stroke="#b9e3c8"/>
+      <circle cx="745" cy="45" r="14" fill="#1e9e5a"/><text x="745" y="50" text-anchor="middle" font-weight="800" fill="#fff">4</text>
+      <text x="765" y="50" font-weight="700">అయిపోయింది!</text>
+      <text x="725" y="80">పచ్చ చుక్క =</text>
+      <text x="725" y="105">connected. పెద్ద</text>
+      <text x="725" y="130">అంకె = live reading</text>
+    </g>
+    <defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#999"/></marker></defs>
+  </svg>
+  <ul>
+    <li>Wire ని clamp లో పెట్టి mode మార్చినా, page automatic గా update అవుతుంది.</li>
+    <li>పని అయ్యాక <b>⬇ Export CSV</b> నొక్కితే అన్ని readings ఒక file గా download అవుతాయి → Excel లో open / WhatsApp లో share చేయవచ్చు.</li>
+    <li>Connection మధ్యలో పోతే page <b>5 సార్లు తనంతట తానే</b> మళ్ళీ connect అవ్వడానికి try చేస్తుంది.</li>
+    <li>అయ్యాక <b>Disconnect</b> నొక్కండి లేదా మీటర్ OFF చేయండి.</li>
+  </ul>
+</section>
+
+<!-- 7 -->
+<section>
+  <h2>8. Screen లో ఏమి కనిపిస్తుంది?</h2>
+  <div class="mock">
+    <div class="hd"><span><b style="background:#f5c400;color:#111;padding:1px 6px;border-radius:3px">FLUKE</b> 378 FC · Live Dashboard</span><span><span class="num">1</span>● Connected · 378FC</span></div>
+    <div class="btns"><span class="num">2</span><span class="b p">🔵 Connect meter</span><span class="b">Disconnect</span><span class="b">▶ Demo mode</span><span class="b">Reset stats</span><span class="b">⬇ Export CSV</span></div>
+    <div class="lcd"><div style="display:flex;justify-content:space-between;font-size:11px"><span>378FC</span><span>🔋 85%</span></div><div class="n"><span class="num">3</span>-6.60 <span style="font-size:22px">A dc</span></div></div>
+    <div class="grid"><div class="st"><span class="num">4</span>Min<br><b>-6.71</b></div><div class="st">Max<br><b>-6.52</b></div><div class="st">Avg<br><b>-6.61</b></div><div class="st">Samples<br><b>128</b></div></div>
+    <div class="graph"><span class="num" style="position:absolute;left:6px;top:6px">5</span><i></i></div>
+    <div style="margin-top:8px;background:#181b22;border:1px solid #2a2f3a;border-radius:8px;padding:6px"><span class="num">6</span>Measurement log — 15:20:01 · -6.60 · A · dc &nbsp;|&nbsp; 15:20:00 · -6.61 · A · dc …</div>
+  </div>
+  <table style="margin-top:12px">
+    <tr><td><span class="num">1</span></td><td><b>Status చుక్క</b> — బూడిద: connect కాలేదు · పసుపు: connecting/demo · <b>పచ్చ: connected</b> · ఎరుపు: disconnected</td></tr>
+    <tr><td><span class="num">2</span></td><td><b>బటన్లు</b> — Connect / Disconnect / Demo / Reset / CSV export</td></tr>
+    <tr><td><span class="num">3</span></td><td><b>Live reading</b> — మీటర్ display లో ఉన్నదే ఇక్కడ పెద్దగా. Unit (A, V, Ω…) + mode (dc/ac/MAX/HOLD…) + battery %</td></tr>
+    <tr><td><span class="num">4</span></td><td><b>Min / Max / Avg / Samples</b> — connect అయినప్పటి నుంచి automatic లెక్క</td></tr>
+    <tr><td><span class="num">5</span></td><td><b>Graph</b> — చివరి 240 readings గీత (load ఎలా మారుతోందో చూడటానికి)</td></tr>
+    <tr><td><span class="num">6</span></td><td><b>Log table</b> — ప్రతి reading time తో. CSV లో ఇవన్నీ వస్తాయి</td></tr>
+  </table>
+</section>
+
+<!-- 8 -->
+<section>
+  <h2>9. ఒక్క విషయం మాత్రం మొదటిసారి test చేయాలి</h2>
+  <p>మీటర్ లోపల reading ఉండే "పెట్టె" కి ఒక పొడవైన address ఉంటుంది (దీన్ని <b>UUID</b> అంటారు). ఇప్పటివరకు ఇది <b>Fluke 376 FC</b> మీద మాత్రమే బయట వాళ్ళు కనుగొని publish చేశారు:</p>
+  <p class="kbd" style="display:block;word-break:break-all">b6981800-7562-11e2-b50d-00163e46f8fe → b6982901-7562-11e2-b50d-00163e46f8fe</p>
+  <p>మీ <b>378 FC</b> అదే family కాబట్టి <b>అదే address అయ్యే అవకాశం చాలా ఎక్కువ</b>. మన page లో ఇవే default గా పెట్టాను.</p>
+  <div class="two">
+    <div class="box good">✅ Connect చేయగానే అంకె వస్తే<br>→ అంతే, ఇక ఏమీ చేయనవసరం లేదు.</div>
+    <div class="box badb">❌ Connected అయ్యి కూడా అంకె రాకపోతే<br>→ కింద 5 నిమిషాల fix.</div>
+  </div>
+  <h3>Fix (అవసరమైతే మాత్రమే): nRF Connect app</h3>
+  <ol>
+    <li>Play Store → <b>"nRF Connect for Mobile"</b> (free) install.</li>
+    <li>మీటర్ F బటన్ → nRF Connect లో <b>SCAN</b> → <b>378FC</b> → <b>CONNECT</b>.</li>
+    <li><b>"Unknown Service"</b> అని ఒకటి కనిపిస్తుంది → దాని UUID, దాని లోపల <b>"Unknown Characteristic"</b> (NOTIFY, READ) UUID note చేయండి.</li>
+    <li>nRF Connect లో <b>DISCONNECT</b> చేయండి.</li>
+    <li>మన page → <b>Advanced</b> → ఆ రెండు UUIDs paste → Connect meter.</li>
+  </ol>
+</section>
+
+<!-- 9 -->
+<section>
+  <h2>10. ఏవి సాధ్యం కాదు (నిజాయితీగా)</h2>
+  <table>
+    <tr><th>❌ సాధ్యం కాదు</th><th>ఎందుకు</th><th>ప్రత్యామ్నాయం</th></tr>
+    <tr><td>iPhone / Safari</td><td>Apple Web Bluetooth ఇవ్వదు</td><td>Android ఫోన్ వాడండి (లేదా iPhone లో "Bluefy" app)</td></tr>
+    <tr><td>Page close చేసి / screen off లో రాత్రంతా logging</td><td>Page open ఉన్నప్పుడే Bluetooth పనిచేస్తుంది</td><td>Screen on ఉంచండి (page దానికదే ఉంచుతుంది) — లేదా laptop + Python పద్ధతి</td></tr>
+    <tr><td>WhatsApp కి automatic messages</td><td>WhatsApp కి అలాంటి facility లేదు</td><td>CSV / screenshot manual share</td></tr>
+    <tr><td>10–20 మీటర్ల దూరం నుంచి</td><td>మీటర్ radio బలహీనం</td><td>3 మీ. లోపు ఉండండి</td></tr>
+    <tr><td>Fluke official support</td><td>ఇది community కనుగొన్న పద్ధతి</td><td>Firmware update తో మారితే చిన్న సర్దుబాటు</td></tr>
+  </table>
+</section>
+
+<!-- 10 -->
+<section>
+  <h2>11. సమస్య వస్తే</h2>
+  <table>
+    <tr><th>ఏమి కనిపిస్తోంది</th><th>ఏం చేయాలి</th></tr>
+    <tr><td>ఎర్ర message: "Web Bluetooth is not available"</td><td>Chrome వాడండి (Firefox / iPhone వద్దు)</td></tr>
+    <tr><td>ఎర్ర message: "Not a secure context"</td><td>Link <span class="kbd">https://</span> తో ఉందా చూడండి</td></tr>
+    <tr><td>పసుపు message: "inside a preview frame"</td><td>Chat preview లో కాదు — page ని సొంత tab లో / Home screen icon నుంచి open చేయండి</td></tr>
+    <tr><td>Connect నొక్కితే list ఖాళీ</td><td>మీటర్ F బటన్ → Bluetooth గుర్తు ఉందా? · 2 మీ. లోపు రండి · Location ON · "Show all Bluetooth devices" tick</td></tr>
+    <tr><td>List లో ఉంది కానీ connect అవ్వదు</td><td>Fluke Connect / nRF Connect apps close చేయండి → మీటర్ OFF → ON → మళ్ళీ try</td></tr>
+    <tr><td>Connected కానీ అంకె "----"</td><td>Section 9 fix (nRF Connect తో UUID)</td></tr>
+    <tr><td>తరచుగా disconnect</td><td>దగ్గరకి రండి; మీటర్ battery మార్చండి</td></tr>
+  </table>
+</section>
+
+<!-- 11 -->
+<section>
+  <h2>12. మొత్తం ఒక్క వాక్యంలో</h2>
+  <div class="ok" style="font-size:18px">
+    మీటర్ తన reading ని Bluetooth లో <b>సాదా text</b> గా పంపుతుంది → Android Chrome ఆ Bluetooth ని <b>మన index.html page</b> కి ఇస్తుంది → page దాన్ని పెద్ద అంకెగా, graph గా, table గా చూపిస్తుంది. <b>Fluke app వద్దు, internet వద్దు</b> — ఒక్కసారి page ని ఫోన్‌లోకి తెచ్చుకుంటే చాలు.
+  </div>
+  <p><b>మీరు చేయాల్సిన 3 పనులు:</b> ① 5 files → Netlify Drop → link &nbsp; ② ఫోన్ Chrome లో open → Add to Home screen &nbsp; ③ మీటర్ F బటన్ → Connect meter → 378FC → Pair.</p>
+</section>
+
+</main>
+<footer><div style="text-align:center;margin-bottom:10px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff"><div style="font-weight:700">This project corporates</div><div style="font-size:20px;font-weight:900;color:#b58900">Somu &amp; Kiran</div><div>Powered by <a href="mailto:somu.ss74@gmail.com" style="color:#1f6feb;text-decoration:none">somu.ss74@gmail.com</a></div></div>ఇది unofficial community పద్ధతి; Fluke Corporation తో సంబంధం లేదు. Default UUIDs Fluke 376 FC మీద public గా verify అయినవి — మీ 378 FC మీద మొదటి connect లో confirm చేసుకోండి.</footer>
+</body>
+</html>
