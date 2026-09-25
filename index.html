@@ -1060,7 +1060,7 @@ td .dl{display:block;font-size:9px;font-weight:700;color:var(--faint);line-heigh
   // A 0 A point cannot be detected (dead heater = looks like no clamp) → operator presses Confirm. Confirm/Manual always work.
   let auto={ state:'idle', peak:null, u:'', t0:0, timer:null };          // state: idle → arm → hold → idle
   function autoOn(){ return !!+set.auto; }
-  const AUTO_SEC=4;   /* v23: fixed 4-second scan window (user decision) */
+  const AUTO_SEC=2;   /* v23: fixed 2-second scan window (user decision) */
   function autoWin(){ return AUTO_SEC; }
   function autoReset(silent){ clearTimeout(auto.timer); auto.state='idle'; auto.peak=null; auto.t0=0; autoUi(); }
   function autoHold(){ clearTimeout(auto.timer); if(autoOn()){ auto.state='hold'; auto.peak=null; auto.t0=0; } else auto.state='idle'; autoUi(); }   /* value saved by button/hand → wait for unclamp */
