@@ -808,7 +808,7 @@ td .dl{display:block;font-size:9px;font-weight:700;color:var(--faint);line-heigh
       </ol>
     </section>
   </div>
-<footer style="max-width:760px;margin:0 auto;padding:0 12px 8px"><div class="credits" style="text-align:center;margin-top:14px;padding-top:10px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)"><div style="font-weight:700;color:var(--text)">This project corporates</div><div style="font-size:15px;font-weight:800;color:#b45309;letter-spacing:.02em">Somu &amp; Kiran</div><div>Powered by <a href="/cdn-cgi/l/email-protection#94e7fbf9e1bae7e7a3a0d4f3f9f5fdf8baf7fbf9" style="color:var(--info);text-decoration:none"><span class="__cf_email__" data-cfemail="62110d0f174c1111555622050f030b0e4c010d0f">[email&#160;protected]</span></a></div></div><div style="text-align:center;font-size:11px;color:var(--faint);margin-top:6px">Unofficial community tool — not affiliated with Fluke Corporation · v2026-09-04.30</div></footer>
+<footer style="max-width:760px;margin:0 auto;padding:0 12px 8px"><div class="credits" style="text-align:center;margin-top:14px;padding-top:10px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)"><div style="font-weight:700;color:var(--text)">This project corporates</div><div style="font-size:15px;font-weight:800;color:#b45309;letter-spacing:.02em">Somu &amp; Kiran</div><div>Powered by <a href="/cdn-cgi/l/email-protection#196a76746c376a6a2e2d597e74787075377a7674" style="color:var(--info);text-decoration:none"><span class="__cf_email__" data-cfemail="fd8e929088d38e8ecac9bd9a909c9491d39e9290">[email&#160;protected]</span></a></div></div><div style="text-align:center;font-size:11px;color:var(--faint);margin-top:6px">Unofficial community tool — not affiliated with Fluke Corporation · v2026-09-04.30</div></footer>
 </main>
 
 <div class="bottombar" id="bottombar">
@@ -1060,7 +1060,7 @@ td .dl{display:block;font-size:9px;font-weight:700;color:var(--faint);line-heigh
   // A 0 A point cannot be detected (dead heater = looks like no clamp) → operator presses Confirm. Confirm/Manual always work.
   let auto={ state:'idle', peak:null, u:'', t0:0, timer:null };          // state: idle → arm → hold → idle
   function autoOn(){ return !!+set.auto; }
-  const AUTO_SEC=2;   /* v23: fixed 2-second scan window (user decision) */
+  const AUTO_SEC=4;   /* v23: fixed 4-second scan window (user decision) */
   function autoWin(){ return AUTO_SEC; }
   function autoReset(silent){ clearTimeout(auto.timer); auto.state='idle'; auto.peak=null; auto.t0=0; autoUi(); }
   function autoHold(){ clearTimeout(auto.timer); if(autoOn()){ auto.state='hold'; auto.peak=null; auto.t0=0; } else auto.state='idle'; autoUi(); }   /* value saved by button/hand → wait for unclamp */
@@ -1824,5 +1824,5 @@ td .dl{display:block;font-size:9px;font-weight:700;color:var(--faint);line-heigh
   renderAll(); renderAdmin();
 })();
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a409bb295bc97f84',t:'MTc5MDMzNjE4NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
